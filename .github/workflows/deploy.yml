@@ -1,0 +1,28 @@
+name: Deploy to GitHub Pages
+
+on:
+  # Se ejecuta cuando haces "push" a la rama especificada
+  push:
+    branches:
+      - main # Asegúrate que este sea el nombre de tu rama principal
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Paso 1: Descarga una copia de tu repositorio
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Paso 2: Busca el archivo index.html y reemplaza el marcador de posición
+      # con el valor del "secret" que guardaste en GitHub.
+      - name: Replace API Key placeholder
+        run: |
+          sed -i "s|__GEMINI_API_KEY_PLACEHOLDER__|${{ secrets.GEMINI_API_KEY }}|g" index.html
+
+      # Paso 3: Sube el código modificado a la rama 'gh-pages' para publicarlo
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./ # Directorio a publicar (la raíz en este caso)

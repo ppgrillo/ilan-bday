@@ -60,7 +60,7 @@
         .nav-link.active {
             color: #FBBF24; /* yellow-400 */
         }
-         .nav-link.active svg {
+        .nav-link.active svg {
             transform: scale(1.1);
         }
         /* Mobile Menu Overlay */
@@ -70,449 +70,447 @@
     </style>
 </head>
 <body class="overflow-x-hidden">
-    <!-- Canvas for Confetti -->
-    <canvas id="confetti-canvas" class="confetti-canvas"></canvas>
+<!-- Canvas for Confetti -->
+<canvas id="confetti-canvas" class="confetti-canvas"></canvas>
 
-    <!-- Main Container -->
-    <div class="min-h-screen">
-        <!-- Giant Banner Section -->
-        <header class="relative w-full h-screen flex flex-col items-center justify-center text-center overflow-hidden bg-gray-900" id="inicio">
-             <div class="absolute inset-0 bg-black opacity-50"></div>
-            <div class="relative z-10 p-4">
-                <h1 class="text-6xl md:text-8xl lg:text-9xl font-black uppercase text-glow tracking-wider">
-                    ILAN'S
-                </h1>
-                 <h2 class="text-5xl md:text-7xl lg:text-8xl font-black uppercase text-yellow-400">
-                    BDAY PARTY
-                </h2>
-                <p class="mt-4 text-lg md:text-2xl text-gray-300">¡No te lo puedes perder!</p>
-                <!-- Countdown Timer -->
-                <div id="countdown-container" class="mt-8">
-                    <div id="timer" class="flex justify-center gap-4 md:gap-8">
-                        <div>
-                            <span id="days" class="text-4xl md:text-6xl font-bold text-yellow-400">00</span>
-                            <span class="block text-sm md:text-base text-gray-300">Días</span>
-                        </div>
-                        <div>
-                            <span id="hours" class="text-4xl md:text-6xl font-bold text-yellow-400">00</span>
-                            <span class="block text-sm md:text-base text-gray-300">Horas</span>
-                        </div>
-                        <div>
-                            <span id="minutes" class="text-4xl md:text-6xl font-bold text-yellow-400">00</span>
-                            <span class="block text-sm md:text-base text-gray-300">Minutos</span>
-                        </div>
-                        <div>
-                            <span id="seconds" class="text-4xl md:text-6xl font-bold text-yellow-400">00</span>
-                            <span class="block text-sm md:text-base text-gray-300">Segundos</span>
-                        </div>
+<!-- Main Container -->
+<div class="min-h-screen">
+    <!-- Giant Banner Section -->
+    <header class="relative w-full h-screen flex flex-col items-center justify-center text-center overflow-hidden bg-gray-900" id="inicio">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 p-4">
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-black uppercase text-glow tracking-wider">
+                ILAN'S
+            </h1>
+            <h2 class="text-5xl md:text-7xl lg:text-8xl font-black uppercase text-yellow-400">
+                BDAY BASH
+            </h2>
+            <p class="mt-4 text-lg md:text-2xl text-gray-300">¡No te lo puedes perder!</p>
+            <!-- Countdown Timer -->
+            <div id="countdown-container" class="mt-8">
+                <div id="timer" class="flex justify-center gap-4 md:gap-8">
+                    <div>
+                        <span id="days" class="text-4xl md:text-6xl font-bold text-yellow-400">00</span>
+                        <span class="block text-sm md:text-base text-gray-300">Días</span>
                     </div>
-                    <div id="today-message" class="hidden text-4xl md:text-6xl font-bold text-yellow-400 animate-pulse">
-                        ¡ES HOY! ¡NOS VEMOS AL RATO!
+                    <div>
+                        <span id="hours" class="text-4xl md:text-6xl font-bold text-yellow-400">00</span>
+                        <span class="block text-sm md:text-base text-gray-300">Horas</span>
+                    </div>
+                    <div>
+                        <span id="minutes" class="text-4xl md:text-6xl font-bold text-yellow-400">00</span>
+                        <span class="block text-sm md:text-base text-gray-300">Minutos</span>
+                    </div>
+                    <div>
+                        <span id="seconds" class="text-4xl md:text-6xl font-bold text-yellow-400">00</span>
+                        <span class="block text-sm md:text-base text-gray-300">Segundos</span>
+                    </div>
+                </div>
+                <div id="today-message" class="hidden text-4xl md:text-6xl font-bold text-yellow-400 animate-pulse">
+                    ¡ES HOY! ¡NOS VEMOS AL RATO!
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 animate-bounce">
+            <svg class="w-8 h-8 text-yellow-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-16 md:py-24 space-y-16 md:space-y-24">
+
+        <!-- Invitation Details Card -->
+        <section class="card text-center max-w-3xl mx-auto" id="invitacion">
+            <div class="p-8 md:p-12 rounded-xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-4">¡Estás Invitado!</h2>
+                <p class="text-lg text-gray-300 mb-2">Acompáñame a celebrar mi cumpleaños.</p>
+                <p class="text-xl font-bold text-white">Jueves, 23 de Octubre | 7:00 PM</p>
+                <div class="mt-8">
+                    <a href="#mapa" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 inline-block">
+                        Ver Ubicación
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Itinerary Card -->
+        <section id="itinerario" class="card max-w-3xl mx-auto">
+            <div class="p-8 md:p-12 rounded-xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-red-500">Itinerario</h2>
+                <div class="relative border-l-2 border-gray-700 ml-4">
+                    <div class="mb-8 pl-8">
+                        <div class="absolute -left-3 mt-1.5 w-6 h-6 bg-red-500 rounded-full"></div>
+                        <p class="text-gray-400">7:00 PM</p>
+                        <h3 class="text-xl font-bold text-white">Recepción y Bienvenida</h3>
+                        <p class="text-gray-300">¡Llegó la hora de empezar la fiesta!</p>
+                    </div>
+                    <div class="mb-8 pl-8">
+                        <div class="absolute -left-3 mt-1.5 w-6 h-6 bg-red-500 rounded-full"></div>
+                        <p class="text-gray-400">8:30 PM</p>
+                        <h3 class="text-xl font-bold text-white">Cena y Bebidas</h3>
+                        <p class="text-gray-300">A recargar energías con algo delicioso.</p>
+                    </div>
+                    <div class="mb-8 pl-8">
+                        <div class="absolute -left-3 mt-1.5 w-6 h-6 bg-red-500 rounded-full"></div>
+                        <p class="text-gray-400">10:00 PM</p>
+                        <h3 class="text-xl font-bold text-white">Música y Baile</h3>
+                        <p class="text-gray-300">¡Que el ritmo no pare!</p>
+                    </div>
+                    <div class="pl-8">
+                        <div class="absolute -left-3 mt-1.5 w-6 h-6 bg-red-500 rounded-full"></div>
+                        <p class="text-gray-400">11:00 PM</p>
+                        <h3 class="text-xl font-bold text-white">Pastel y Sorpresas</h3>
+                        <p class="text-gray-300">El momento más dulce de la noche.</p>
                     </div>
                 </div>
             </div>
-            <div class="absolute bottom-10 animate-bounce">
-                <svg class="w-8 h-8 text-yellow-400" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-                    <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                </svg>
+        </section>
+
+        <!-- Photo Carousel Card -->
+        <section id="fotos" class="card max-w-3xl mx-auto">
+            <div class="p-8 md:p-12 rounded-xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-blue-500">Algunos Recuerdos</h2>
+                <div id="carousel" class="relative rounded-lg overflow-hidden shadow-lg">
+                    <div class="carousel-container flex transition-transform duration-500 ease-in-out" style="transform: translateX(0%);">
+                        <div class="carousel-item"><img src="https://placehold.co/800x600/1F2937/F3F4F6?text=Foto+1" alt="Recuerdo 1" class="w-full h-full object-cover"></div>
+                        <div class="carousel-item"><img src="https://placehold.co/800x600/111827/FBBF24?text=Foto+2" alt="Recuerdo 2" class="w-full h-full object-cover"></div>
+                        <div class="carousel-item"><img src="https://placehold.co/800x600/1F2937/EF4444?text=Foto+3" alt="Recuerdo 3" class="w-full h-full object-cover"></div>
+                        <div class="carousel-item"><img src="https://placehold.co/800x600/111827/3B82F6?text=Foto+4" alt="Recuerdo 4" class="w-full h-full object-cover"></div>
+                    </div>
+                    <button id="prevBtn" class="carousel-button absolute top-1/2 left-2 transform -translate-y-1/2 text-white p-2 rounded-full">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <button id="nextBtn" class="carousel-button absolute top-1/2 right-2 transform -translate-y-1/2 text-white p-2 rounded-full">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
             </div>
-        </header>
+        </section>
 
-        <!-- Main Content -->
-        <main class="container mx-auto px-6 py-16 md:py-24 space-y-16 md:space-y-24">
-            
-            <!-- Invitation Details Card -->
-            <section class="card text-center max-w-3xl mx-auto" id="invitacion">
-                <div class="p-8 md:p-12 rounded-xl">
-                    <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-4">¡Estás Invitado!</h2>
-                    <p class="text-lg text-gray-300 mb-2">Acompáñame a celebrar mi cumpleaños.</p>
-                    <p class="text-xl font-bold text-white">Jueves, 23 de Octubre | 7:00 PM</p>
-                    <div class="mt-8">
-                        <a href="#mapa" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 inline-block">
-                            Ver Ubicación
-                        </a>
+        <!-- Food Menu Card -->
+        <section id="menu" class="card max-w-3xl mx-auto">
+            <div class="p-8 md:p-12 rounded-xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-yellow-400">Menú</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Comida</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>Tacos al Pastor</li>
+                            <li>Pizzas artesanales</li>
+                            <li>Bandeja de quesos y carnes frías</li>
+                            <li>Ensalada fresca</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-4">Bebidas</h3>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>Margaritas y Mojitos</li>
+                            <li>Cerveza artesanal</li>
+                            <li>Refrescos y Aguas frescas</li>
+                            <li>Barra de café</li>
+                        </ul>
                     </div>
                 </div>
-            </section>
-            
-            <!-- Itinerary Card -->
-            <section id="itinerario" class="card max-w-3xl mx-auto">
-                <div class="p-8 md:p-12 rounded-xl">
-                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-red-500">Itinerario</h2>
-                    <div class="relative border-l-2 border-gray-700 ml-4">
-                        <div class="mb-8 pl-8">
-                            <div class="absolute -left-3 mt-1.5 w-6 h-6 bg-red-500 rounded-full"></div>
-                            <p class="text-gray-400">7:00 PM</p>
-                            <h3 class="text-xl font-bold text-white">Recepción y Bienvenida</h3>
-                            <p class="text-gray-300">¡Llegó la hora de empezar la fiesta!</p>
-                        </div>
-                        <div class="mb-8 pl-8">
-                            <div class="absolute -left-3 mt-1.5 w-6 h-6 bg-red-500 rounded-full"></div>
-                            <p class="text-gray-400">8:30 PM</p>
-                            <h3 class="text-xl font-bold text-white">Cena y Bebidas</h3>
-                            <p class="text-gray-300">A recargar energías con algo delicioso.</p>
-                        </div>
-                        <div class="mb-8 pl-8">
-                           <div class="absolute -left-3 mt-1.5 w-6 h-6 bg-red-500 rounded-full"></div>
-                            <p class="text-gray-400">10:00 PM</p>
-                            <h3 class="text-xl font-bold text-white">Música y Baile</h3>
-                            <p class="text-gray-300">¡Que el ritmo no pare!</p>
-                        </div>
-                        <div class="pl-8">
-                           <div class="absolute -left-3 mt-1.5 w-6 h-6 bg-red-500 rounded-full"></div>
-                            <p class="text-gray-400">11:00 PM</p>
-                            <h3 class="text-xl font-bold text-white">Pastel y Sorpresas</h3>
-                            <p class="text-gray-300">El momento más dulce de la noche.</p>
-                        </div>
-                    </div>
+            </div>
+        </section>
+
+        <!-- Map Card -->
+        <section id="mapa" class="card max-w-3xl mx-auto">
+            <div class="p-8 md:p-12 rounded-xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-green-500">Ubicación</h2>
+                <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border-2 border-gray-700">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!m8!1m3!1d933.2222839715522!2d-100.41542692642403!3d20.674088904326126!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35b94687b46bb%3A0x4f8e60f0191142ec!2sParque%20Serra!5e0!3m2!1sen!2smx!4v1757705993348!5m2!1sen!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-            </section>
+                <p class="text-center mt-4 text-gray-400">Parque Serra</p>
+            </div>
+        </section>
 
-            <!-- Photo Carousel Card -->
-            <section id="fotos" class="card max-w-3xl mx-auto">
-                 <div class="p-8 md:p-12 rounded-xl">
-                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-blue-500">Algunos Recuerdos</h2>
-                    <div id="carousel" class="relative rounded-lg overflow-hidden shadow-lg">
-                        <div class="carousel-container flex transition-transform duration-500 ease-in-out" style="transform: translateX(0%);">
-                            <div class="carousel-item"><img src="https://placehold.co/800x600/1F2937/F3F4F6?text=Foto+1" alt="Recuerdo 1" class="w-full h-full object-cover"></div>
-                            <div class="carousel-item"><img src="https://placehold.co/800x600/111827/FBBF24?text=Foto+2" alt="Recuerdo 2" class="w-full h-full object-cover"></div>
-                            <div class="carousel-item"><img src="https://placehold.co/800x600/1F2937/EF4444?text=Foto+3" alt="Recuerdo 3" class="w-full h-full object-cover"></div>
-                            <div class="carousel-item"><img src="https://placehold.co/800x600/111827/3B82F6?text=Foto+4" alt="Recuerdo 4" class="w-full h-full object-cover"></div>
-                        </div>
-                        <button id="prevBtn" class="carousel-button absolute top-1/2 left-2 transform -translate-y-1/2 text-white p-2 rounded-full">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                        </button>
-                        <button id="nextBtn" class="carousel-button absolute top-1/2 right-2 transform -translate-y-1/2 text-white p-2 rounded-full">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                        </button>
-                    </div>
+        <!-- Gift Idea Generator Card (Gemini API) -->
+        <section id="gift-ideas" class="card max-w-3xl mx-auto">
+            <div class="p-8 md:p-12 rounded-xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-purple-500">¿No sabes qué regalar?</h2>
+                <p class="text-center text-gray-300 mb-6">Describe algunos intereses de Ilan y deja que la magia suceda.</p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <input type="text" id="interests-input" placeholder="Ej: fútbol, gatos, videojuegos..." class="w-full bg-gray-700 border border-gray-600 rounded-full py-3 px-6 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500">
+                    <button id="generate-ideas-btn" class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 whitespace-nowrap">
+                        ✨ Generar Ideas
+                    </button>
                 </div>
-            </section>
-
-            <!-- Food Menu Card -->
-            <section id="menu" class="card max-w-3xl mx-auto">
-                <div class="p-8 md:p-12 rounded-xl">
-                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-yellow-400">Menú</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                        <div>
-                            <h3 class="text-2xl font-bold text-white mb-4">Comida</h3>
-                            <ul class="space-y-2 text-gray-300">
-                                <li>Tacos al Pastor</li>
-                                <li>Pizzas artesanales</li>
-                                <li>Bandeja de quesos y carnes frías</li>
-                                <li>Ensalada fresca</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 class="text-2xl font-bold text-white mb-4">Bebidas</h3>
-                            <ul class="space-y-2 text-gray-300">
-                                <li>Margaritas y Mojitos</li>
-                                <li>Cerveza artesanal</li>
-                                <li>Refrescos y Aguas frescas</li>
-                                <li>Barra de café</li>
-                            </ul>
-                        </div>
-                    </div>
+                <div id="ideas-output" class="mt-8 p-6 bg-gray-800 rounded-lg min-h-[100px] text-gray-300 whitespace-pre-wrap flex items-center justify-center">
+                    Aquí aparecerán las sugerencias...
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <!-- Map Card -->
-            <section id="mapa" class="card max-w-3xl mx-auto">
-                <div class="p-8 md:p-12 rounded-xl">
-                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-green-500">Ubicación</h2>
-                    <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border-2 border-gray-700">
-                         <iframe src="https://www.google.com/maps/embed?pb=!1m14!m8!1m3!1d933.2222839715522!2d-100.41542692642403!3d20.674088904326126!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35b94687b46bb%3A0x4f8e60f0191142ec!2sParque%20Serra!5e0!3m2!1sen!2smx!4v1757705993348!5m2!1sen!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                     <p class="text-center mt-4 text-gray-400">Parque Serra</p>
-                </div>
-            </section>
+    </main>
 
-            <!-- Gift Idea Generator Card (Gemini API) -->
-            <section id="gift-ideas" class="card max-w-3xl mx-auto">
-                <div class="p-8 md:p-12 rounded-xl">
-                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-purple-500">¿No sabes qué regalar?</h2>
-                    <p class="text-center text-gray-300 mb-6">Describe algunos intereses de Ilan y deja que la magia suceda.</p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <input type="text" id="interests-input" placeholder="Ej: fútbol, gatos, videojuegos..." class="w-full bg-gray-700 border border-gray-600 rounded-full py-3 px-6 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500">
-                        <button id="generate-ideas-btn" class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 whitespace-nowrap">
-                            ✨ Generar Ideas
-                        </button>
-                    </div>
-                    <div id="ideas-output" class="mt-8 p-6 bg-gray-800 rounded-lg min-h-[100px] text-gray-300 whitespace-pre-wrap flex items-center justify-center">
-                         Aquí aparecerán las sugerencias...
-                    </div>
-                </div>
-            </section>
+    <!-- WhatsApp Help Button -->
+    <a href="https://wa.me/YOUR_NUMBER_HERE?text=Hola!%20Tengo%20una%20pregunta%20sobre%20la%20fiesta." target="_blank" class="fixed bottom-6 left-6 bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-transform transform hover:scale-105 z-50">
+        <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path d="M13.545 2.907a10.027 10.027 0 00-1.523-1.523C10.928.52 9.47.013 8.01.013c-4.418 0-8 3.582-8 8 0 1.46.393 2.822 1.07 4.013l-1.028 3.79c-.07.258.05.537.288.665a.498.498 0 00.52-.038l3.79-1.028c1.19.676 2.552 1.07 4.013 1.07 4.418 0 8-3.582 8-8 0-1.46-.393-2.822-1.07-4.013zM8.01 14.013c-1.223 0-2.39-.333-3.398-.928l-.243-.144-2.51 1.745 1.755-2.51-.144-.243c-.595-1.008-.928-2.175-.928-3.398 0-3.308 2.692-6 6-6s6 2.692 6 6-2.692 6-6 6zm2.828-4.116L9.42 11.31c-.135.21-.35.334-.58.334-.04 0-.08-.004-.12-.012-.322-.063-.53-.39-.466-.712l.652-3.26-2.092-.52c-.322-.08-.48-.442-.4-.764s.442-.48.764-.4l2.58 1.43 1.43 2.58c.08.14.12.3.12.46 0 .33-.27.6-.6.6z"/></svg>
+    </a>
 
-        </main>
+    <!-- Confetti Toggle Button -->
+    <button id="confetti-toggle" title="Activar/Desactivar Confeti" class="fixed bottom-6 right-6 bg-gray-700/80 backdrop-blur-sm text-4xl w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-transform transform hover:scale-110 z-50">
+    </button>
 
-        <!-- WhatsApp Help Button -->
-        <a href="https://wa.me/YOUR_NUMBER_HERE?text=Hola!%20Tengo%20una%20pregunta%20sobre%20la%20fiesta." target="_blank" class="fixed bottom-6 left-6 bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-transform transform hover:scale-105 z-50">
-            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 20 20"><path d="M13.545 2.907a10.027 10.027 0 00-1.523-1.523C10.928.52 9.47.013 8.01.013c-4.418 0-8 3.582-8 8 0 1.46.393 2.822 1.07 4.013l-1.028 3.79c-.07.258.05.537.288.665a.498.498 0 00.52-.038l3.79-1.028c1.19.676 2.552 1.07 4.013 1.07 4.418 0 8-3.582 8-8 0-1.46-.393-2.822-1.07-4.013zM8.01 14.013c-1.223 0-2.39-.333-3.398-.928l-.243-.144-2.51 1.745 1.755-2.51-.144-.243c-.595-1.008-.928-2.175-.928-3.398 0-3.308 2.692-6 6-6s6 2.692 6 6-2.692 6-6 6zm2.828-4.116L9.42 11.31c-.135.21-.35.334-.58.334-.04 0-.08-.004-.12-.012-.322-.063-.53-.39-.466-.712l.652-3.26-2.092-.52c-.322-.08-.48-.442-.4-.764s.442-.48.764-.4l2.58 1.43 1.43 2.58c.08.14.12.3.12.46 0 .33-.27.6-.6.6z"/></svg>
-        </a>
+    <!-- Desktop Vertical Navigation -->
+    <nav class="fixed right-6 top-1/2 -translate-y-1/2 z-50 flex-col gap-2 hidden md:flex">
+        <a href="#inicio" data-section="inicio" title="Inicio" class="nav-link group flex items-center justify-end p-2 text-gray-400 hover:text-yellow-400 transition-colors"><span class="hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 mr-2">Inicio</span><svg xmlns="http://www.w.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg></a>
+        <a href="#invitacion" data-section="invitacion" title="Invitación" class="nav-link group flex items-center justify-end p-2 text-gray-400 hover:text-yellow-400 transition-colors"><span class="hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 mr-2">Invitación</span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 S.O. 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg></a>
+        <a href="#itinerario" data-section="itinerario" title="Itinerario" class="nav-link group flex items-center justify-end p-2 text-gray-400 hover:text-yellow-400 transition-colors"><span class="hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 mr-2">Itinerario</span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg></a>
+        <a href="#fotos" data-section="fotos" title="Recuerdos" class="nav-link group flex items-center justify-end p-2 text-gray-400 hover:text-yellow-400 transition-colors"><span class="hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 mr-2">Recuerdos</span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg></a>
+        <a href="#menu" data-section="menu" title="Menú" class="nav-link group flex items-center justify-end p-2 text-gray-400 hover:text-yellow-400 transition-colors"><span class="hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 mr-2">Menú</span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0c-.454-.303-.977-.454-1.5-.454V8.454c.523 0 1.046-.151 1.5-.454a2.704 2.704 0 013 0 2.704 2.704 0 003 0 2.704 2.704 0 013 0 2.704 2.704 0 003 0c.454.303.977.454 1.5.454v7.092zM15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></a>
+        <a href="#mapa" data-section="mapa" title="Ubicación" class="nav-link group flex items-center justify-end p-2 text-gray-400 hover:text-yellow-400 transition-colors"><span class="hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 mr-2">Ubicación</span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></a>
+        <a href="#gift-ideas" data-section="gift-ideas" title="Ideas de Regalo" class="nav-link group flex items-center justify-end p-2 text-gray-400 hover:text-yellow-400 transition-colors"><span class="hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 mr-2">Regalos</span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" /></svg></a>
+    </nav>
 
-        <!-- Confetti Toggle Button -->
-        <button id="confetti-toggle" title="Activar/Desactivar Confeti" class="fixed bottom-6 right-6 bg-gray-700/80 backdrop-blur-sm text-4xl w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-transform transform hover:scale-110 z-50">
-        </button>
+    <!-- Mobile Hamburger Button -->
+    <button id="mobile-menu-button" class="md:hidden fixed top-6 right-6 z-[10001] bg-gray-800/80 p-3 rounded-full backdrop-blur-sm">
+        <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+    </button>
 
-        <!-- Desktop Vertical Navigation -->
-        <nav class="fixed right-6 top-1/2 -translate-y-1/2 z-50 flex-col gap-2 hidden md:flex">
-            <a href="#inicio" data-section="inicio" title="Inicio" class="nav-link group flex items-center justify-end p-2 text-gray-400 hover:text-yellow-400 transition-colors"><span class="hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 mr-2">Inicio</span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg></a>
-            <a href="#invitacion" data-section="invitacion" title="Invitación" class="nav-link group flex items-center justify-end p-2 text-gray-400 hover:text-yellow-400 transition-colors"><span class="hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 mr-2">Invitación</span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg></a>
-            <a href="#itinerario" data-section="itinerario" title="Itinerario" class="nav-link group flex items-center justify-end p-2 text-gray-400 hover:text-yellow-400 transition-colors"><span class="hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 mr-2">Itinerario</span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg></a>
-            <a href="#fotos" data-section="fotos" title="Recuerdos" class="nav-link group flex items-center justify-end p-2 text-gray-400 hover:text-yellow-400 transition-colors"><span class="hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 mr-2">Recuerdos</span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg></a>
-            <a href="#menu" data-section="menu" title="Menú" class="nav-link group flex items-center justify-end p-2 text-gray-400 hover:text-yellow-400 transition-colors"><span class="hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 mr-2">Menú</span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0c-.454-.303-.977-.454-1.5-.454V8.454c.523 0 1.046-.151 1.5-.454a2.704 2.704 0 013 0 2.704 2.704 0 003 0 2.704 2.704 0 013 0 2.704 2.704 0 003 0c.454.303.977.454 1.5.454v7.092zM15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></a>
-            <a href="#mapa" data-section="mapa" title="Ubicación" class="nav-link group flex items-center justify-end p-2 text-gray-400 hover:text-yellow-400 transition-colors"><span class="hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 mr-2">Ubicación</span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></a>
-            <a href="#gift-ideas" data-section="gift-ideas" title="Ideas de Regalo" class="nav-link group flex items-center justify-end p-2 text-gray-400 hover:text-yellow-400 transition-colors"><span class="hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 mr-2">Regalos</span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" /></svg></a>
-        </nav>
-
-        <!-- Mobile Hamburger Button -->
-        <button id="mobile-menu-button" class="md:hidden fixed top-6 right-6 z-[10001] bg-gray-800/80 p-3 rounded-full backdrop-blur-sm">
-            <svg class="w-6 h-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-gray-900/95 z-[10000] flex flex-col items-center justify-center">
+        <button id="mobile-menu-close-button" class="absolute top-6 right-6 z-10 p-3">
+            <svg class="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
         </button>
-
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu-overlay" class="hidden fixed inset-0 bg-gray-900/95 z-[10000] flex flex-col items-center justify-center">
-            <button id="mobile-menu-close-button" class="absolute top-6 right-6 z-10 p-3">
-                <svg class="w-8 h-8 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
-            <nav class="flex flex-col items-center justify-center text-center gap-6">
-                <a href="#inicio" class="mobile-nav-link text-2xl font-bold text-gray-400 hover:text-yellow-400 transition-colors">Inicio</a>
-                <a href="#invitacion" class="mobile-nav-link text-2xl font-bold text-gray-400 hover:text-yellow-400 transition-colors">Invitación</a>
-                <a href="#itinerario" class="mobile-nav-link text-2xl font-bold text-gray-400 hover:text-yellow-400 transition-colors">Itinerario</a>
-                <a href="#fotos" class="mobile-nav-link text-2xl font-bold text-gray-400 hover:text-yellow-400 transition-colors">Recuerdos</a>
-                <a href="#menu" class="mobile-nav-link text-2xl font-bold text-gray-400 hover:text-yellow-400 transition-colors">Menú</a>
-                <a href="#mapa" class="mobile-nav-link text-2xl font-bold text-gray-400 hover:text-yellow-400 transition-colors">Ubicación</a>
-                <a href="#gift-ideas" class="mobile-nav-link text-2xl font-bold text-gray-400 hover:text-yellow-400 transition-colors">Regalos</a>
-            </nav>
-        </div>
-
+        <nav class="flex flex-col items-center justify-center text-center gap-6">
+            <a href="#inicio" class="mobile-nav-link text-2xl font-bold text-gray-400 hover:text-yellow-400 transition-colors">Inicio</a>
+            <a href="#invitacion" class="mobile-nav-link text-2xl font-bold text-gray-400 hover:text-yellow-400 transition-colors">Invitación</a>
+            <a href="#itinerario" class="mobile-nav-link text-2xl font-bold text-gray-400 hover:text-yellow-400 transition-colors">Itinerario</a>
+            <a href="#fotos" class="mobile-nav-link text-2xl font-bold text-gray-400 hover:text-yellow-400 transition-colors">Recuerdos</a>
+            <a href="#menu" class="mobile-nav-link text-2xl font-bold text-gray-400 hover:text-yellow-400 transition-colors">Menú</a>
+            <a href="#mapa" class="mobile-nav-link text-2xl font-bold text-gray-400 hover:text-yellow-400 transition-colors">Ubicación</a>
+            <a href="#gift-ideas" class="mobile-nav-link text-2xl font-bold text-gray-400 hover:text-yellow-400 transition-colors">Regalos</a>
+        </nav>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- Confetti Effect ---
-            let confettiInterval;
-            let isConfettiOn = true;
-            const confettiToggleButton = document.getElementById('confetti-toggle');
-            const confettiCanvas = document.getElementById('confetti-canvas');
-            const myConfetti = confetti.create(confettiCanvas, { resize: true, useWorker: false });
+</div>
 
-            function launchMixedConfetti() {
-                const festiveIcons = ['⚽️', '🚲', '🐱', '🎂', '🎉', '🎈', '🎁'];
-                const colors = ['#FBBF24', '#EF4444', '#3B82F6', '#10B981'];
-                const iconProps = { particleCount: 30, spread: 80, shapes: festiveIcons, scalar: 1.5 };
-                myConfetti({ ...iconProps, angle: 60, origin: { x: 0, y: 1 } });
-                myConfetti({ ...iconProps, angle: 120, origin: { x: 1, y: 1 } });
-                const squareProps = { particleCount: 20, spread: 55, shapes: ['square'], colors: colors };
-                myConfetti({ ...squareProps, angle: 65, origin: { x: 0, y: 1 } });
-                myConfetti({ ...squareProps, angle: 115, origin: { x: 1, y: 1 } });
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Confetti Effect ---
+        let confettiInterval;
+        let isConfettiOn = true;
+        const confettiToggleButton = document.getElementById('confetti-toggle');
+        const confettiCanvas = document.getElementById('confetti-canvas');
+        const myConfetti = confetti.create(confettiCanvas, { resize: true, useWorker: false });
+
+        function launchMixedConfetti() {
+            const festiveIcons = ['⚽️', '🚲', '🐱', '🎂', '🎉', '🎈', '🎁'];
+            const colors = ['#FBBF24', '#EF4444', '#3B82F6', '#10B981'];
+            const iconProps = { particleCount: 30, spread: 80, shapes: festiveIcons, scalar: 1.5 };
+            myConfetti({ ...iconProps, angle: 60, origin: { x: 0, y: 1 } });
+            myConfetti({ ...iconProps, angle: 120, origin: { x: 1, y: 1 } });
+            const squareProps = { particleCount: 20, spread: 55, shapes: ['square'], colors: colors };
+            myConfetti({ ...squareProps, angle: 65, origin: { x: 0, y: 1 } });
+            myConfetti({ ...squareProps, angle: 115, origin: { x: 1, y: 1 } });
+        }
+
+        function startConfetti() {
+            if (isConfettiOn && !confettiInterval) {
+                setTimeout(launchMixedConfetti, 100);
+                confettiInterval = setInterval(launchMixedConfetti, 6000);
+            }
+        }
+
+        function stopConfetti() {
+            clearInterval(confettiInterval);
+            confettiInterval = null;
+            myConfetti.reset();
+        }
+
+        confettiToggleButton.textContent = '🥳';
+        confettiToggleButton.addEventListener('click', () => {
+            isConfettiOn = !isConfettiOn;
+            if (isConfettiOn) {
+                startConfetti();
+                confettiToggleButton.textContent = '🥳';
+            } else {
+                stopConfetti();
+                confettiToggleButton.textContent = '😢';
+            }
+        });
+
+        startConfetti();
+
+        // --- Countdown Timer Logic ---
+        const partyDate = new Date("October 23, 2025 19:00:00").getTime();
+        const countdownFunction = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = partyDate - now;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            if (distance >= 0) {
+                document.getElementById("days").innerText = days.toString().padStart(2, '0');
+                document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
+            } else {
+                clearInterval(countdownFunction);
+                document.getElementById("timer").style.display = "none";
+                document.getElementById("today-message").classList.remove("hidden");
+            }
+        }, 1000);
+
+        // --- Gemini API Gift Idea Generator ---
+        const generateBtn = document.getElementById('generate-ideas-btn');
+        const interestsInput = document.getElementById('interests-input');
+        const ideasOutput = document.getElementById('ideas-output');
+
+        // --- ¡IMPORTANTE PARA USAR GITHUB ACTIONS! ---
+        // Este código está listo para usar GitHub Actions.
+        // 1. Guarda tu clave API como un "secret" en tu repositorio de GitHub con el nombre: GEMINI_API_KEY
+        // 2. El workflow de GitHub Actions reemplazará automáticamente el marcador de posición de abajo con tu clave secreta.
+        const apiKey = "__GEMINI_API_KEY_PLACEHOLDER__"; // Marcador de posición para la clave API
+
+        generateBtn.addEventListener('click', async () => {
+            // Muestra un error si la clave no ha sido reemplazada por GitHub Actions.
+            if (apiKey === "__GEMINI_API_KEY_PLACEHOLDER__") {
+                ideasOutput.textContent = 'La configuración de la clave API no está completa. El dueño de la página debe configurar los secrets de GitHub Actions.';
+                return;
             }
 
-            function startConfetti() {
-                if (isConfettiOn && !confettiInterval) {
-                    setTimeout(launchMixedConfetti, 100);
-                    confettiInterval = setInterval(launchMixedConfetti, 6000);
-                }
+            const userInterests = interestsInput.value.trim();
+            if (!userInterests) {
+                ideasOutput.textContent = 'Por favor, escribe al menos un interés para generar ideas.';
+                return;
             }
 
-            function stopConfetti() {
-                clearInterval(confettiInterval);
-                confettiInterval = null;
-                myConfetti.reset();
-            }
-            
-            confettiToggleButton.textContent = '🥳';
-            confettiToggleButton.addEventListener('click', () => {
-                isConfettiOn = !isConfettiOn;
-                if (isConfettiOn) {
-                    startConfetti();
-                    confettiToggleButton.textContent = '🥳';
-                } else {
-                    stopConfetti();
-                    confettiToggleButton.textContent = '😢';
-                }
-            });
-            
-            startConfetti();
+            ideasOutput.innerHTML = '<div class="flex justify-center items-center"><svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="ml-3">Generando ideas mágicas...</span></div>';
 
-            // --- Countdown Timer Logic ---
-            const partyDate = new Date("October 23, 2025 19:00:00").getTime();
-            const countdownFunction = setInterval(function() {
-                const now = new Date().getTime();
-                const distance = partyDate - now;
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            const systemPrompt = "Actúa como un amigable y creativo asesor de regalos. Proporciona 3 ideas de regalos únicas y divertidas en español para alguien llamado Ilan, basándote en los intereses proporcionados. Mantén las sugerencias breves y emocionantes, formateadas como una lista numerada.";
+            const userQuery = `Los intereses son: ${userInterests}`;
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
 
-                if (distance >= 0) {
-                    document.getElementById("days").innerText = days.toString().padStart(2, '0');
-                    document.getElementById("hours").innerText = hours.toString().padStart(2, '0');
-                    document.getElementById("minutes").innerText = minutes.toString().padStart(2, '0');
-                    document.getElementById("seconds").innerText = seconds.toString().padStart(2, '0');
-                } else {
-                    clearInterval(countdownFunction);
-                    document.getElementById("timer").style.display = "none";
-                    document.getElementById("today-message").classList.remove("hidden");
-                }
-            }, 1000);
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] },
+            };
 
-            // --- Gemini API Gift Idea Generator ---
-            const generateBtn = document.getElementById('generate-ideas-btn');
-            const interestsInput = document.getElementById('interests-input');
-            const ideasOutput = document.getElementById('ideas-output');
-            
-            // --- ¡IMPORTANTE PARA PUBLICAR EN GITHUB PAGES! ---
-            // El código funciona en este entorno de prueba sin una clave (dejando apKy = "").
-            // PERO, para que funcione en un sitio público como GitHub Pages, DEBES hacer lo siguiente:
-            // 1. Ve a https://aistudio.google.com/app/apKy
-            // 2. Crea una nueva clave API gratuita.
-            // 3. Pega tu clave API DENTRO de las comillas. Ejemplo: const apKy = "AIzaSy...restodelaclave";
-            const apKy = "AIzaSyBWotphK0B5ioXn9QykcBjnk2oMr6NvSz4"; // <--- ¡PEGA TU CLAVE API AQUÍ SOLO PARA PUBLICAR EN GITHUB PAGES!
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
 
-            generateBtn.addEventListener('click', async () => {
-                // Alerta al usuario si está en un sitio público sin clave.
-                if (apKy === "" && window.location.hostname !== "localhost" && !window.location.hostname.includes('usercontent.goog')) {
-                    ideasOutput.textContent = 'Para activar esta función en el sitio público, el dueño de la página debe agregar una clave API de Gemini en el código.';
-                    return;
-                }
-
-                const userInterests = interestsInput.value.trim();
-                if (!userInterests) {
-                    ideasOutput.textContent = 'Por favor, escribe al menos un interés para generar ideas.';
-                    return;
-                }
-
-                ideasOutput.innerHTML = '<div class="flex justify-center items-center"><svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="ml-3">Generando ideas mágicas...</span></div>';
-
-                const systemPrompt = "Actúa como un amigable y creativo asesor de regalos. Proporciona 3 ideas de regalos únicas y divertidas en español para alguien llamado Ilan, basándote en los intereses proporcionados. Mantén las sugerencias breves y emocionantes, formateadas como una lista numerada.";
-                const userQuery = `Los intereses son: ${userInterests}`;
-                const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apKy}`;
-
-                const payload = {
-                    contents: [{ parts: [{ text: userQuery }] }],
-                    systemInstruction: { parts: [{ text: systemPrompt }] },
-                };
-
-                try {
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    if (!response.ok) {
-                        const errorResult = await response.json();
-                        // Proporciona un mensaje más útil si la clave es inválida.
-                        if (errorResult.error?.message.includes("API key not valid")) {
-                           ideasOutput.textContent = 'La clave API configurada no es válida. El dueño de la página debe revisarla.';
-                        } else {
-                           throw new Error(errorResult.error?.message || `Error: ${response.status}`);
-                        }
-                        return;
-                    }
-
-                    const result = await response.json();
-                    const candidate = result.candidates?.[0];
-                    if (candidate && candidate.content?.parts?.[0]?.text) {
-                        ideasOutput.textContent = candidate.content.parts[0].text;
+                if (!response.ok) {
+                    const errorResult = await response.json();
+                    // Proporciona un mensaje más útil si la clave es inválida.
+                    if (errorResult.error?.message.includes("API key not valid")) {
+                        ideasOutput.textContent = 'La clave API configurada no es válida. El dueño de la página debe revisarla.';
                     } else {
-                        throw new Error('Respuesta inesperada de la API.');
+                        throw new Error(errorResult.error?.message || `Error: ${response.status}`);
                     }
-                } catch (error) {
-                    console.error('Error fetching gift ideas:', error);
-                    ideasOutput.textContent = '¡Ups! Algo salió mal. Por favor, intenta de nuevo más tarde.';
+                    return;
+                }
+
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    ideasOutput.textContent = candidate.content.parts[0].text;
+                } else {
+                    throw new Error('Respuesta inesperada de la API.');
+                }
+            } catch (error) {
+                console.error('Error fetching gift ideas:', error);
+                ideasOutput.textContent = '¡Ups! Algo salió mal. Por favor, intenta de nuevo más tarde.';
+            }
+        });
+
+        // --- Scroll Animations for Cards ---
+        const cards = document.querySelectorAll('.card');
+        const cardObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
                 }
             });
+        }, { threshold: 0.1 });
+        cards.forEach(card => cardObserver.observe(card));
 
-            // --- Scroll Animations for Cards ---
-            const cards = document.querySelectorAll('.card');
-            const cardObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                    }
-                });
-            }, { threshold: 0.1 });
-            cards.forEach(card => cardObserver.observe(card));
-            
-            // --- Navigation Logic ---
-            const sections = document.querySelectorAll('header, main section');
-            const desktopNavLinks = document.querySelectorAll('nav.hidden a.nav-link');
-            
-            const navObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const sectionId = entry.target.id;
-                        desktopNavLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.dataset.section === sectionId) {
-                                link.classList.add('active');
-                            }
-                        });
-                    }
-                });
-            }, { rootMargin: '-50% 0px -50% 0px' });
+        // --- Navigation Logic ---
+        const sections = document.querySelectorAll('header, main section');
+        const desktopNavLinks = document.querySelectorAll('nav.hidden a.nav-link');
 
-            sections.forEach(section => {
-                navObserver.observe(section);
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const sectionId = entry.target.id;
+                    desktopNavLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.dataset.section === sectionId) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
             });
+        }, { rootMargin: '-50% 0px -50% 0px' });
 
-            // --- Mobile Menu Logic ---
-            const menuButton = document.getElementById('mobile-menu-button');
-            const closeMenuButton = document.getElementById('mobile-menu-close-button');
-            const menuOverlay = document.getElementById('mobile-menu-overlay');
-            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        sections.forEach(section => {
+            navObserver.observe(section);
+        });
 
-            menuButton.addEventListener('click', () => {
-                menuOverlay.classList.remove('hidden');
-            });
+        // --- Mobile Menu Logic ---
+        const menuButton = document.getElementById('mobile-menu-button');
+        const closeMenuButton = document.getElementById('mobile-menu-close-button');
+        const menuOverlay = document.getElementById('mobile-menu-overlay');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-            closeMenuButton.addEventListener('click', () => {
+        menuButton.addEventListener('click', () => {
+            menuOverlay.classList.remove('hidden');
+        });
+
+        closeMenuButton.addEventListener('click', () => {
+            menuOverlay.classList.add('hidden');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
                 menuOverlay.classList.add('hidden');
             });
-
-            mobileNavLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    menuOverlay.classList.add('hidden');
-                });
-            });
-            
-            // --- Photo Carousel Logic ---
-            const carousel = document.getElementById('carousel');
-            const container = carousel.querySelector('.carousel-container');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const items = container.querySelectorAll('.carousel-item');
-            const totalItems = items.length;
-            let currentIndex = 0;
-
-            function updateCarousel() {
-                container.style.transform = `translateX(-${currentIndex * 100}%)`;
-            }
-
-            nextBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % totalItems;
-                updateCarousel();
-            });
-
-            prevBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-                updateCarousel();
-            });
-            
-            setInterval(() => {
-                currentIndex = (currentIndex + 1) % totalItems;
-                updateCarousel();
-            }, 5000);
         });
-    </script>
+
+        // --- Photo Carousel Logic ---
+        const carousel = document.getElementById('carousel');
+        const container = carousel.querySelector('.carousel-container');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const items = container.querySelectorAll('.carousel-item');
+        const totalItems = items.length;
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            container.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateCarousel();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+            updateCarousel();
+        });
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateCarousel();
+        }, 5000);
+    });
+</script>
 </body>
 </html>
 

@@ -64,14 +64,12 @@
             background-color: rgba(0, 0, 0, 0.8);
         }
 
-        /* New Sticky Header Styles */
-        #main-nav.scrolled {
-            background-color: #1F2937;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-        }
-        .nav-link-header.active {
+        /* Original Vertical Nav */
+        .nav-link.active {
             color: #FBBF24; /* yellow-400 */
-            font-weight: bold;
+        }
+        .nav-link.active svg {
+            transform: scale(1.1);
         }
 
         /* Mobile Menu Overlay */
@@ -142,12 +140,31 @@
         <!-- Invitation Details Card -->
         <section class="card text-center max-w-3xl mx-auto" id="invitacion">
             <div class="p-8 md:p-12 rounded-xl">
-                <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-4">¡Estás Invitado a mis 4 años!</h2>
-                <p class="text-lg text-gray-300 mb-2">Acompáñame a celebrar mi cumpleaños en Parque Serra.</p>
-                <p class="text-xl font-bold text-white">Jueves, 23 de Octubre | 2:30 PM</p>
+                <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-4">
+                    🎉 ¡Ven a celebrar mi cumple conmigo! 🚴‍♂️
+                </h2>
+
+                <p class="text-lg text-gray-300 mb-2">
+                    Habrá sorpresas, comida rica y muuucha diversión. 🎂✨
+                </p>
+
+                <p class="text-lg text-gray-300 mb-2">
+                    ¡Trae tu bici! 🚲 Porque la fiesta será en un <span class="font-semibold text-yellow-300">parque de ciclismo</span>.
+                    Tendremos <span class="font-semibold">mini clases y trucos para mejorar en la bici</span>, y lo mejor...
+                    ¡vamos a jugar y rodar juntos en el parque! 😍
+                </p>
+
+                <p class="text-lg text-gray-300 mb-2">
+                    No importa si eres experto o si es tu primera vez, ¡anímate a probar algo nuevo y divertirte conmigo! 🌟
+                </p>
+
+                <p class="text-xl font-bold text-white">
+                    📅 Jueves, 23 de Octubre | 🕑 2:30 PM
+                </p>
+
                 <div class="mt-8">
                     <a href="#mapa" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 inline-block">
-                        Ver Ubicación
+                        📍 Ver Ubicación
                     </a>
                 </div>
             </div>
@@ -218,7 +235,6 @@
             <div class="p-8 md:p-12 rounded-xl">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-blue-500">Algunos Recuerdos</h2>
                 <div id="carousel" class="relative rounded-lg overflow-hidden shadow-lg h-64 md:h-96">
-                    <!-- The carousel items will be inserted here by JavaScript -->
                     <div class="carousel-container h-full flex transition-transform duration-500 ease-in-out" style="transform: translateX(0%);">
                     </div>
                     <button id="prevBtn" class="carousel-button absolute top-1/2 left-2 transform -translate-y-1/2 text-white p-2 rounded-full">
@@ -286,7 +302,7 @@
 
     <!-- WhatsApp Help Button -->
     <a href="https://wa.me/525518529830?text=Hola!%20Tengo%20una%20pregunta%20sobre%20la%20fiesta." target="_blank" class="fixed bottom-6 left-6 bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-lg transition-transform transform hover:scale-105 z-50">
-        <img src="svgicon/icon-whatsapp.svg" alt="Whatsapp Help!" class="w-6 h-6" />
+        <img src="svgicon/icon-whatsapp.svg" alt="Whatsapp Help!" class="w-9 h-9" />
     </a>
 
     <!-- Confetti Toggle Button -->
@@ -299,7 +315,6 @@
         <a href="#invitacion" data-section="invitacion" title="Invitación" class="nav-link group flex items-center justify-end p-2 text-gray-400 hover:text-yellow-400 transition-colors"><span class="hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 mr-2">Invitación</span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg></a>
         <a href="#calendario" data-section="calendario" title="Agendar" class="nav-link group flex items-center justify-end p-2 text-gray-400 hover:text-yellow-400 transition-colors"><span class="hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 mr-2">Agendar</span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg></a>
         <a href="#itinerario" data-section="itinerario" title="Itinerario" class="nav-link group flex items-center justify-end p-2 text-gray-400 hover:text-yellow-400 transition-colors"><span class="hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 mr-2">Itinerario</span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg></a>
-        <a href="#juego" data-section="juego" title="Juego" class="nav-link group flex items-center justify-end p-2 text-gray-400 hover:text-yellow-400 transition-colors"><span class="hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 mr-2">Juego</span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg></a>
         <a href="#fotos" data-section="fotos" title="Recuerdos" class="nav-link group flex items-center justify-end p-2 text-gray-400 hover:text-yellow-400 transition-colors"><span class="hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 mr-2">Recuerdos</span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg></a>
         <a href="#menu" data-section="menu" title="Menú" class="nav-link group flex items-center justify-end p-2 text-gray-400 hover:text-yellow-400 transition-colors"><span class="hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 mr-2">Menú</span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0c-.454-.303-.977-.454-1.5-.454V8.454c.523 0 1.046-.151 1.5-.454a2.704 2.704 0 013 0 2.704 2.704 0 003 0 2.704 2.704 0 013 0 2.704 2.704 0 003 0c.454.303.977.454 1.5.454v7.092zM15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></a>
         <a href="#mapa" data-section="mapa" title="Ubicación" class="nav-link group flex items-center justify-end p-2 text-gray-400 hover:text-yellow-400 transition-colors"><span class="hidden group-hover:block bg-gray-800 text-white text-xs rounded py-1 px-2 mr-2">Ubicación</span><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></a>
@@ -325,7 +340,6 @@
             <a href="#invitacion" class="mobile-nav-link text-2xl font-bold text-gray-300 hover:text-yellow-400 transition-colors flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>Invitación</a>
             <a href="#calendario" class="mobile-nav-link text-2xl font-bold text-gray-300 hover:text-yellow-400 transition-colors flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>Agendar</a>
             <a href="#itinerario" class="mobile-nav-link text-2xl font-bold text-gray-300 hover:text-yellow-400 transition-colors flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>Itinerario</a>
-            <a href="#juego" class="mobile-nav-link text-2xl font-bold text-gray-300 hover:text-yellow-400 transition-colors flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>Juego</a>
             <a href="#fotos" class="mobile-nav-link text-2xl font-bold text-gray-300 hover:text-yellow-400 transition-colors flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>Recuerdos</a>
             <a href="#menu" class="mobile-nav-link text-2xl font-bold text-gray-300 hover:text-yellow-400 transition-colors flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0c-.454-.303-.977-.454-1.5-.454V8.454c.523 0 1.046-.151 1.5-.454a2.704 2.704 0 013 0 2.704 2.704 0 003 0 2.704 2.704 0 013 0 2.704 2.704 0 003 0c.454.303.977.454 1.5.454v7.092zM15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>Menú</a>
             <a href="#mapa" class="mobile-nav-link text-2xl font-bold text-gray-300 hover:text-yellow-400 transition-colors flex items-center gap-3"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>Ubicación</a>
@@ -634,7 +648,7 @@
             carouselContainer.innerHTML = '';
             mediaFiles.forEach((file, index) => {
                 const itemDiv = document.createElement('div');
-                itemDiv.className = 'carousel-item group';
+                itemDiv.className = 'carousel-item group cursor-pointer';
 
                 if (file.endsWith('.mp4')) {
                     const video = document.createElement('video');
@@ -651,13 +665,7 @@
                     itemDiv.appendChild(img);
                 }
 
-                const expandBtn = document.createElement('button');
-                expandBtn.className =
-                    'absolute bottom-3 right-3 bg-white/50 text-white rounded-full hover:bg-white/80 transition-opacity opacity-0 group-hover:opacity-100 flex items-center justify-center w-8 h-8';
-                expandBtn.title = 'Ver en pantalla completa';
-                expandBtn.innerHTML = `<img src="svgicon/icon-expand.svg" alt="Expandir" class="w-4 h-4">`;
-                expandBtn.addEventListener('click', () => openFullscreen(index));
-                itemDiv.appendChild(expandBtn);
+                itemDiv.addEventListener('click', () => openFullscreen(index));
 
                 carouselContainer.appendChild(itemDiv);
             });

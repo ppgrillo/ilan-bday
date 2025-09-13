@@ -50,6 +50,12 @@
             flex-shrink: 0;
             width: 100%;
             height: 100%;
+            position: relative;
+        }
+        .carousel-item video, .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         .carousel-button {
             background-color: rgba(0, 0, 0, 0.5);
@@ -228,12 +234,9 @@
         <section id="fotos" class="card max-w-3xl mx-auto">
             <div class="p-8 md:p-12 rounded-xl">
                 <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-blue-500">Algunos Recuerdos</h2>
-                <div id="carousel" class="relative rounded-lg overflow-hidden shadow-lg">
-                    <div class="carousel-container flex transition-transform duration-500 ease-in-out" style="transform: translateX(0%);">
-                        <div class="carousel-item"><img src="https://placehold.co/800x600/1F2937/F3F4F6?text=Foto+1" alt="Recuerdo 1" class="w-full h-full object-cover"></div>
-                        <div class="carousel-item"><img src="https://placehold.co/800x600/111827/FBBF24?text=Foto+2" alt="Recuerdo 2" class="w-full h-full object-cover"></div>
-                        <div class="carousel-item"><img src="https://placehold.co/800x600/1F2937/EF4444?text=Foto+3" alt="Recuerdo 3" class="w-full h-full object-cover"></div>
-                        <div class="carousel-item"><img src="https://placehold.co/800x600/111827/3B82F6?text=Foto+4" alt="Recuerdo 4" class="w-full h-full object-cover"></div>
+                <div id="carousel" class="relative rounded-lg overflow-hidden shadow-lg h-64 md:h-96">
+                    <!-- The carousel items will be inserted here by JavaScript -->
+                    <div class="carousel-container h-full flex transition-transform duration-500 ease-in-out" style="transform: translateX(0%);">
                     </div>
                     <button id="prevBtn" class="carousel-button absolute top-1/2 left-2 transform -translate-y-1/2 text-white p-2 rounded-full">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
@@ -348,6 +351,14 @@
     </div>
 
 </div>
+
+<!-- Fullscreen Modal -->
+<div id="fullscreen-modal" class="hidden fixed inset-0 bg-black/90 z-[10001] items-center justify-center p-4">
+    <img id="fullscreen-img" src="" alt="Vista a pantalla completa" class="hidden max-w-full max-h-full object-contain">
+    <video id="fullscreen-video" src="" class="hidden max-w-full max-h-full" controls autoplay></video>
+    <button id="close-fullscreen-btn" class="absolute top-6 right-6 text-white text-5xl font-bold">&times;</button>
+</div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script>
@@ -535,19 +546,135 @@
         closeMenuButton.addEventListener('click', closeMenu);
         mobileNavLinks.forEach(link => { link.addEventListener('click', closeMenu); });
 
-        // --- Photo Carousel Logic ---
-        const carousel = document.getElementById('carousel');
-        const container = carousel.querySelector('.carousel-container');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const items = container.querySelectorAll('.carousel-item');
-        const totalItems = items.length;
-        let currentIndex = 0;
+        // --- Dynamic Photo Carousel & Fullscreen Logic ---
 
-        function updateCarousel() { container.style.transform = `translateX(-${currentIndex * 100}%)`; }
-        nextBtn.addEventListener('click', () => { currentIndex = (currentIndex + 1) % totalItems; updateCarousel(); });
-        prevBtn.addEventListener('click', () => { currentIndex = (currentIndex - 1 + totalItems) % totalItems; updateCarousel(); });
-        setInterval(() => { currentIndex = (currentIndex + 1) % totalItems; updateCarousel(); }, 5000);
+        // 1. DEFINE YOUR MEDIA FILES HERE
+        const mediaFiles = [
+            'img/img1.jpg',
+            'img/img2.jpg',
+            'img/img3.gif',
+            'img/img3a.gif',
+            'img/img4.jpg',
+            'img/img5.jpg',
+            'img/img6.jpg',
+            'img/img7.jpg',
+            'img/img8.jpg',
+            'img/img9.jpg',
+            'img/img10.jpg',
+            'img/vid1.mp4',
+            'img/img1.jpg',
+            // Add more files here like: 'img/another-photo.jpg'
+        ];
+
+        const carouselContainer = document.querySelector('#fotos .carousel-container');
+        const fullscreenModal = document.getElementById('fullscreen-modal');
+        const fullscreenImg = document.getElementById('fullscreen-img');
+        const fullscreenVideo = document.getElementById('fullscreen-video');
+        const closeFullscreenBtn = document.getElementById('close-fullscreen-btn');
+
+        function openFullscreen(filePath) {
+            if (filePath.endsWith('.mp4')) {
+                fullscreenVideo.src = filePath;
+                fullscreenVideo.classList.remove('hidden');
+                fullscreenImg.classList.add('hidden');
+                fullscreenVideo.play();
+            } else {
+                fullscreenImg.src = filePath;
+                fullscreenImg.classList.remove('hidden');
+                fullscreenVideo.classList.add('hidden');
+            }
+            fullscreenModal.classList.remove('hidden');
+            fullscreenModal.classList.add('flex');
+        }
+
+        function closeFullscreen() {
+            fullscreenModal.classList.add('hidden');
+            fullscreenModal.classList.remove('flex');
+            fullscreenVideo.pause();
+            fullscreenVideo.src = "";
+            fullscreenImg.src = "";
+        }
+
+        closeFullscreenBtn.addEventListener('click', closeFullscreen);
+        fullscreenModal.addEventListener('click', (e) => {
+            if (e.target === fullscreenModal) {
+                closeFullscreen();
+            }
+        });
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !fullscreenModal.classList.contains('hidden')) {
+                closeFullscreen();
+            }
+        });
+
+        function populateCarousel() {
+            carouselContainer.innerHTML = '';
+            mediaFiles.forEach(file => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'carousel-item group'; // Added group for hover effect
+
+                if (file.endsWith('.mp4')) {
+                    const video = document.createElement('video');
+                    video.src = file;
+                    video.autoplay = true;
+                    video.loop = true;
+                    video.muted = true;
+                    video.playsInline = true;
+                    itemDiv.appendChild(video);
+                } else {
+                    const img = document.createElement('img');
+                    img.src = file;
+                    img.alt = "Recuerdo de Ilan";
+                    itemDiv.appendChild(img);
+                }
+
+                // Add expand button
+                const expandBtn = document.createElement('button');
+                expandBtn.className = 'absolute bottom-2 right-2 bg-black/50 text-white p-2 rounded-full hover:bg-black/80 transition-opacity opacity-0 group-hover:opacity-100';
+                expandBtn.title = 'Ver en pantalla completa';
+                expandBtn.innerHTML = `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1v4m0 0h-4m4 0l-5-5M4 16v4m0 0h4m-4 0l5-5m11 1v-4m0 0h-4m4 0l-5 5"></path></svg>`;
+                expandBtn.addEventListener('click', () => openFullscreen(file));
+                itemDiv.appendChild(expandBtn);
+
+                carouselContainer.appendChild(itemDiv);
+            });
+        }
+
+        function initializeCarousel() {
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const items = carouselContainer.querySelectorAll('.carousel-item');
+            if (items.length <= 1) { // Hide buttons if 1 or 0 items
+                prevBtn.style.display = 'none';
+                nextBtn.style.display = 'none';
+                return;
+            };
+            const totalItems = items.length;
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                carouselContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalItems;
+                updateCarousel();
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+                updateCarousel();
+            });
+
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalItems;
+                updateCarousel();
+            }, 5000);
+        }
+
+        populateCarousel();
+        initializeCarousel();
+
 
         // --- Labyrinth Game ---
         const canvas = document.getElementById('maze-canvas');

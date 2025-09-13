@@ -63,12 +63,17 @@
         .carousel-button:hover {
             background-color: rgba(0, 0, 0, 0.8);
         }
-        .nav-link.active {
+
+        /* New Sticky Header Styles */
+        #main-nav.scrolled {
+            background-color: #1F2937;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .nav-link-header.active {
             color: #FBBF24; /* yellow-400 */
+            font-weight: bold;
         }
-        .nav-link.active svg {
-            transform: scale(1.1);
-        }
+
         /* Mobile Menu Overlay */
         #mobile-menu-overlay {
             transition: opacity 0.3s ease-in-out;
@@ -138,7 +143,7 @@
         <section class="card text-center max-w-3xl mx-auto" id="invitacion">
             <div class="p-8 md:p-12 rounded-xl">
                 <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-4">¡Estás Invitado a mis 4 años!</h2>
-                <p class="text-lg text-gray-300 mb-2">Acompáñame a celebrar mi cumpleaños en Palapa Tumbling.</p>
+                <p class="text-lg text-gray-300 mb-2">Acompáñame a celebrar mi cumpleaños en Parque Serra.</p>
                 <p class="text-xl font-bold text-white">Jueves, 23 de Octubre | 2:30 PM</p>
                 <div class="mt-8">
                     <a href="#mapa" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 inline-block">
@@ -204,28 +209,6 @@
                         <h3 class="text-xl font-bold text-white">Fin de la Fiesta</h3>
                         <p class="text-gray-300">¡Gracias por venir!</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Labyrinth Game Section -->
-        <section id="juego" class="card max-w-3xl mx-auto">
-            <div class="p-8 md:p-12 rounded-xl text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4 text-cyan-400">¡Un Juego para Ti!</h2>
-                <p class="text-lg text-gray-300 mb-2">¡Ayuda a Ilan a llegar a su pastel de cumpleaños!</p>
-                <p class="text-gray-400 mb-6 text-sm"> inclina tu teléfono para mover la carita a través del laberinto.</p>
-                <div id="game-container" class="relative w-full aspect-square max-w-md mx-auto bg-gray-800 rounded-lg overflow-hidden border-2 border-cyan-400">
-                    <canvas id="maze-canvas"></canvas>
-                    <div id="win-message" class="hidden absolute inset-0 bg-black/70 flex-col items-center justify-center text-white">
-                        <p class="text-5xl mb-4">🥳</p>
-                        <h3 class="text-3xl font-bold text-yellow-400">¡LO LOGRASTE!</h3>
-                        <p class="mt-2">¡Feliz cumpleaños, Ilan!</p>
-                        <button id="restart-game-btn" class="mt-6 bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-6 rounded-full">Jugar de Nuevo</button>
-                    </div>
-                    <button id="start-game-btn" class="absolute inset-0 bg-black/70 flex flex-col items-center justify-center text-white">
-                        <h3 class="text-2xl font-bold">Toca para empezar</h3>
-                        <p class="mt-2 text-gray-300">(Necesitas permitir el acceso al sensor de movimiento)</p>
-                    </button>
                 </div>
             </div>
         </section>
@@ -356,6 +339,15 @@
 <div id="fullscreen-modal" class="hidden fixed inset-0 bg-black/90 z-[10001] items-center justify-center p-4">
     <img id="fullscreen-img" src="" alt="Vista a pantalla completa" class="hidden max-w-full max-h-full object-contain">
     <video id="fullscreen-video" src="" class="hidden max-w-full max-h-full" controls autoplay></video>
+
+    <!-- Fullscreen Navigation -->
+    <button id="fullscreen-prev-btn" class="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-black/30 p-2 rounded-full hover:bg-black/60 transition-colors">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+    </button>
+    <button id="fullscreen-next-btn" class="absolute right-4 top-1/2 -translate-y-1/2 text-white bg-black/30 p-2 rounded-full hover:bg-black/60 transition-colors">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+    </button>
+
     <button id="close-fullscreen-btn" class="absolute top-6 right-6 text-white text-5xl font-bold">&times;</button>
 </div>
 
@@ -514,20 +506,31 @@
         cards.forEach(card => cardObserver.observe(card));
 
         // --- Navigation Logic ---
+        const mainNav = document.getElementById('main-nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                mainNav.classList.add('scrolled');
+            } else {
+                mainNav.classList.remove('scrolled');
+            }
+        });
+
         const sections = document.querySelectorAll('header, main section');
-        const desktopNavLinks = document.querySelectorAll('nav.hidden a.nav-link');
+        const desktopNavLinks = document.querySelectorAll('#main-nav a.nav-link-header');
         const navObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const sectionId = entry.target.id;
                     desktopNavLinks.forEach(link => {
                         link.classList.remove('active');
-                        if (link.dataset.section === sectionId) { link.classList.add('active'); }
+                        if (link.getAttribute('href') === '#' + sectionId) {
+                            link.classList.add('active');
+                        }
                     });
                 }
             });
         }, { rootMargin: '-50% 0px -50% 0px' });
-        sections.forEach(section => { navObserver.observe(section); });
+        sections.forEach(section => navObserver.observe(section));
 
         // --- Mobile Menu Logic ---
         const menuButton = document.getElementById('mobile-menu-button');
@@ -571,8 +574,13 @@
         const fullscreenImg = document.getElementById('fullscreen-img');
         const fullscreenVideo = document.getElementById('fullscreen-video');
         const closeFullscreenBtn = document.getElementById('close-fullscreen-btn');
+        const fullscreenPrevBtn = document.getElementById('fullscreen-prev-btn');
+        const fullscreenNextBtn = document.getElementById('fullscreen-next-btn');
 
-        function openFullscreen(filePath) {
+        let currentFullscreenIndex = 0;
+
+        function showFullscreenItem(index) {
+            const filePath = mediaFiles[index];
             if (filePath.endsWith('.mp4')) {
                 fullscreenVideo.src = filePath;
                 fullscreenVideo.classList.remove('hidden');
@@ -583,6 +591,11 @@
                 fullscreenImg.classList.remove('hidden');
                 fullscreenVideo.classList.add('hidden');
             }
+        }
+
+        function openFullscreen(index) {
+            currentFullscreenIndex = index;
+            showFullscreenItem(currentFullscreenIndex);
             fullscreenModal.classList.remove('hidden');
             fullscreenModal.classList.add('flex');
         }
@@ -596,22 +609,32 @@
         }
 
         closeFullscreenBtn.addEventListener('click', closeFullscreen);
+        fullscreenNextBtn.addEventListener('click', () => {
+            currentFullscreenIndex = (currentFullscreenIndex + 1) % mediaFiles.length;
+            showFullscreenItem(currentFullscreenIndex);
+        });
+        fullscreenPrevBtn.addEventListener('click', () => {
+            currentFullscreenIndex = (currentFullscreenIndex - 1 + mediaFiles.length) % mediaFiles.length;
+            showFullscreenItem(currentFullscreenIndex);
+        });
+
         fullscreenModal.addEventListener('click', (e) => {
             if (e.target === fullscreenModal) {
                 closeFullscreen();
             }
         });
         window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !fullscreenModal.classList.contains('hidden')) {
-                closeFullscreen();
-            }
+            if (fullscreenModal.classList.contains('hidden')) return;
+            if (e.key === 'Escape') closeFullscreen();
+            if (e.key === 'ArrowRight') fullscreenNextBtn.click();
+            if (e.key === 'ArrowLeft') fullscreenPrevBtn.click();
         });
 
         function populateCarousel() {
             carouselContainer.innerHTML = '';
-            mediaFiles.forEach(file => {
+            mediaFiles.forEach((file, index) => {
                 const itemDiv = document.createElement('div');
-                itemDiv.className = 'carousel-item group'; // Added group for hover effect
+                itemDiv.className = 'carousel-item group';
 
                 if (file.endsWith('.mp4')) {
                     const video = document.createElement('video');
@@ -628,12 +651,12 @@
                     itemDiv.appendChild(img);
                 }
 
-                // Add expand button
                 const expandBtn = document.createElement('button');
-                expandBtn.className = 'absolute bottom-2 right-2 bg-black/50 text-white p-2 rounded-full hover:bg-black/80 transition-opacity opacity-0 group-hover:opacity-100';
+                expandBtn.className =
+                    'absolute bottom-3 right-3 bg-white/50 text-white rounded-full hover:bg-white/80 transition-opacity opacity-0 group-hover:opacity-100 flex items-center justify-center w-8 h-8';
                 expandBtn.title = 'Ver en pantalla completa';
-                expandBtn.innerHTML = `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-1v4m0 0h-4m4 0l-5-5M4 16v4m0 0h4m-4 0l5-5m11 1v-4m0 0h-4m4 0l-5 5"></path></svg>`;
-                expandBtn.addEventListener('click', () => openFullscreen(file));
+                expandBtn.innerHTML = `<img src="svgicon/icon-expand.svg" alt="Expandir" class="w-4 h-4">`;
+                expandBtn.addEventListener('click', () => openFullscreen(index));
                 itemDiv.appendChild(expandBtn);
 
                 carouselContainer.appendChild(itemDiv);
@@ -644,7 +667,7 @@
             const prevBtn = document.getElementById('prevBtn');
             const nextBtn = document.getElementById('nextBtn');
             const items = carouselContainer.querySelectorAll('.carousel-item');
-            if (items.length <= 1) { // Hide buttons if 1 or 0 items
+            if (items.length <= 1) {
                 prevBtn.style.display = 'none';
                 nextBtn.style.display = 'none';
                 return;
@@ -675,184 +698,6 @@
         populateCarousel();
         initializeCarousel();
 
-
-        // --- Labyrinth Game ---
-        const canvas = document.getElementById('maze-canvas');
-        const ctx = canvas.getContext('2d');
-        const gameContainer = document.getElementById('game-container');
-        const winMessage = document.getElementById('win-message');
-        const restartBtn = document.getElementById('restart-game-btn');
-        const startBtn = document.getElementById('start-game-btn');
-        let animationFrameId;
-        let player, maze, goal;
-
-        function resizeCanvas() {
-            const size = gameContainer.clientWidth;
-            canvas.width = size;
-            canvas.height = size;
-        }
-
-        function setupGame() {
-            const size = canvas.width;
-            const cols = 10;
-            const rows = 10;
-            const wallSize = size / cols;
-
-            player = {
-                x: wallSize / 2,
-                y: wallSize / 2,
-                radius: wallSize / 4,
-                vx: 0,
-                vy: 0
-            };
-
-            goal = {
-                x: size - wallSize / 2,
-                y: size - wallSize / 2,
-                text: '🎂'
-            };
-
-            maze = [ // 1 = pared, 0 = camino
-                [1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
-                [0, 0, 0, 1, 0, 0, 0, 1, 0, 1],
-                [1, 1, 0, 1, 0, 1, 0, 0, 0, 1],
-                [1, 0, 0, 0, 0, 1, 1, 1, 0, 1],
-                [1, 0, 1, 1, 1, 0, 0, 0, 0, 1],
-                [1, 0, 0, 0, 1, 0, 1, 1, 1, 1],
-                [1, 1, 1, 0, 1, 0, 0, 0, 0, 1],
-                [1, 0, 0, 0, 1, 1, 1, 1, 0, 1],
-                [1, 0, 1, 0, 0, 0, 0, 0, 0, 0],
-                [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
-            ];
-            winMessage.classList.add('hidden');
-            winMessage.classList.remove('flex');
-        }
-
-        function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            const wallSize = canvas.width / maze.length;
-
-            // Draw maze
-            ctx.fillStyle = '#374151';
-            for (let row = 0; row < maze.length; row++) {
-                for (let col = 0; col < maze[row].length; col++) {
-                    if (maze[row][col] === 1) {
-                        ctx.fillRect(col * wallSize, row * wallSize, wallSize, wallSize);
-                    }
-                }
-            }
-
-            // Draw goal
-            ctx.font = `${wallSize * 0.8}px Arial`;
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.fillText(goal.text, goal.x, goal.y);
-
-            // Draw player
-            ctx.beginPath();
-            ctx.arc(player.x, player.y, player.radius, 0, Math.PI * 2);
-            ctx.fillStyle = '#FBBF24';
-            ctx.fill();
-            ctx.closePath();
-        }
-
-        function update() {
-            let nextX = player.x + player.vx;
-            let nextY = player.y + player.vy;
-            const wallSize = canvas.width / maze.length;
-
-            // Collision detection
-            let gridCol = Math.floor(nextX / wallSize);
-            let gridRow = Math.floor(nextY / wallSize);
-
-            if (maze[gridRow] && maze[gridRow][gridCol] === 1) {
-                player.vx = 0;
-                player.vy = 0;
-            } else {
-                player.x = nextX;
-                player.y = nextY;
-            }
-
-            // Keep player within bounds
-            if (player.x - player.radius < 0) player.x = player.radius;
-            if (player.x + player.radius > canvas.width) player.x = canvas.width - player.radius;
-            if (player.y - player.radius < 0) player.y = player.radius;
-            if (player.y + player.radius > canvas.height) player.y = canvas.height - player.radius;
-
-            // Win condition
-            const dist = Math.hypot(player.x - goal.x, player.y - goal.y);
-            if (dist < player.radius + wallSize / 2) {
-                win();
-            }
-        }
-
-        function gameLoop() {
-            update();
-            draw();
-            animationFrameId = requestAnimationFrame(gameLoop);
-        }
-
-        function win() {
-            cancelAnimationFrame(animationFrameId);
-            winMessage.classList.remove('hidden');
-            winMessage.classList.add('flex');
-
-            // Launch win confetti
-            const rect = canvas.getBoundingClientRect();
-            const x = (rect.left + rect.right) / 2 / window.innerWidth;
-            const y = (rect.top + rect.bottom) / 2 / window.innerHeight;
-
-            myConfetti({
-                particleCount: 200,
-                spread: 100,
-                origin: { x, y },
-                shapes: ['star'],
-                colors: ['#FBBF24', '#ffffff', '#3B82F6']
-            });
-        }
-
-        function handleMotion(event) {
-            const x = event.accelerationIncludingGravity.x;
-            const y = event.accelerationIncludingGravity.y;
-            player.vx = (x / 5);
-            player.vy = -(y / 5);
-        }
-
-        function startGame() {
-            if (typeof DeviceMotionEvent !== 'undefined' && typeof DeviceMotionEvent.requestPermission === 'function') {
-                DeviceMotionEvent.requestPermission().then(permissionState => {
-                    if (permissionState === 'granted') {
-                        startBtn.classList.add('hidden');
-                        window.addEventListener('devicemotion', handleMotion);
-                        resizeCanvas();
-                        setupGame();
-                        animationFrameId = requestAnimationFrame(gameLoop);
-                    } else {
-                        alert('Permiso denegado. No se puede jugar sin acceso al sensor de movimiento.');
-                    }
-                }).catch(console.error);
-            } else {
-                // Handle non-iOS 13+ devices
-                startBtn.classList.add('hidden');
-                window.addEventListener('devicemotion', handleMotion);
-                resizeCanvas();
-                setupGame();
-                animationFrameId = requestAnimationFrame(gameLoop);
-            }
-        }
-
-        startBtn.addEventListener('click', startGame);
-        restartBtn.addEventListener('click', () => {
-            resizeCanvas();
-            setupGame();
-            animationFrameId = requestAnimationFrame(gameLoop);
-        });
-        window.addEventListener('resize', () => {
-            if (animationFrameId) {
-                resizeCanvas();
-                setupGame();
-            }
-        });
     });
 </script>
 </body>

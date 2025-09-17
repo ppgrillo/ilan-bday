@@ -17,6 +17,12 @@
             background-color: #111827; /* Dark background */
             color: #F3F4F6;
         }
+        header {
+            background-image: url('img/fodoMain.png'); /* Updated with the correct image path */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax effect */
+        }
         .text-glow {
             text-shadow: 0 0 8px rgba(255, 255, 255, 0.3), 0 0 20px rgba(250, 204, 21, 0.5);
         }
@@ -275,7 +281,7 @@
                         <h3 class="text-2xl font-bold text-white mb-4">Adultos</h3>
                         <ul class="space-y-2 text-gray-300">
                             <li>Pizza (Queso, Pepperoni, Vegetariana)</li>
-                            <li>Agua de Jamaica y Agua Natural</li>
+                            <li>Agua de Jamaica y Natural</li>
                         </ul>
                     </div>
                     <div>
@@ -404,12 +410,15 @@
         // --- Confetti Effect ---
         let confettiInterval;
         let isConfettiOn = true;
+        let confettiLaunchCount = 0;
+        const maxLaunches = 3;
         const confettiToggleButton = document.getElementById('confetti-toggle');
         const confettiCanvas = document.getElementById('confetti-canvas');
         const myConfetti = confetti.create(confettiCanvas, { resize: true, useWorker: false });
 
         function launchMixedConfetti() {
-            if (!isConfettiOn) return;
+            if (!isConfettiOn || confettiLaunchCount >= maxLaunches) return;
+            confettiLaunchCount++;
             const festiveIcons = ['⚽️', '🚲', '🐱', '🎂', '🎉', '🎈', '🎁'];
             const colors = ['#FBBF24', '#EF4444', '#3B82F6', '#10B981'];
             const iconProps = { particleCount: 30, spread: 80, shapes: festiveIcons, scalar: 1.5 };
@@ -418,10 +427,16 @@
             const squareProps = { particleCount: 20, spread: 55, shapes: ['square'], colors: colors };
             myConfetti({ ...squareProps, angle: 65, origin: { x: 0, y: 1 } });
             myConfetti({ ...squareProps, angle: 115, origin: { x: 1, y: 1 } });
+
+            if (confettiLaunchCount >= maxLaunches) {
+                stopConfetti();
+                confettiToggleButton.textContent = '😢';
+            }
         }
 
         function startConfetti() {
             if (isConfettiOn && !confettiInterval) {
+                confettiLaunchCount = 0; // Reset the counter
                 setTimeout(launchMixedConfetti, 100);
                 confettiInterval = setInterval(launchMixedConfetti, 6000);
             }
@@ -431,24 +446,22 @@
             clearInterval(confettiInterval);
             confettiInterval = null;
             myConfetti.reset();
+            isConfettiOn = false;
         }
 
         confettiToggleButton.textContent = '🥳';
         confettiToggleButton.addEventListener('click', () => {
-            isConfettiOn = !isConfettiOn;
-            if (isConfettiOn) {
-                startConfetti();
+            if (!isConfettiOn) {
+                isConfettiOn = true;
                 confettiToggleButton.textContent = '🥳';
-            } else {
-                stopConfetti();
-                confettiToggleButton.textContent = '😢';
+                startConfetti();
             }
         });
 
         startConfetti();
 
         // --- Countdown Timer Logic ---
-        const partyDate = new Date("October 23, 2025 14:30:00").getTime();
+        const partyDate = new Date("October 22, 2025 23:59:59").getTime();
         const countdownFunction = setInterval(function() {
             const now = new Date().getTime();
             const distance = partyDate - now;

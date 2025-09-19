@@ -150,43 +150,58 @@
     <!-- Main Content -->
     <main class="container mx-auto px-6 py-16 md:py-24 space-y-16 md:space-y-24">
 
-        <!-- Invitation Details Card -->
-        <section class="card text-center max-w-3xl mx-auto" id="invitacion">
-            <div class="p-8 md:p-12 rounded-2xl bg-gradient-to-br from-pink-500/20 via-yellow-500/10 to-red-500/20 shadow-lg">
-                <h2 class="text-3xl md:text-4xl font-bold text-yellow-400 mb-4">
+        <!-- Fullscreen Invitation Layout -->
+        <section class="min-h-screen w-full flex flex-col md:flex-row">
+
+            <!-- Left side: Invitation content -->
+            <div class="flex-1 flex flex-col justify-center p-8 md:p-16 bg-gradient-to-br from-pink-500/20 via-yellow-500/10 to-red-500/20">
+
+                <h2 class="text-3xl md:text-5xl font-bold text-yellow-400 mb-6">
                     🎉 ¡Ven a celebrar mi cumple conmigo! 🚴‍♂️
                 </h2>
 
-                <p class="text-lg text-gray-300 mb-2">
+                <p class="text-lg text-gray-300 mb-3">
                     🎁 Habrá sorpresas, comida rica y muuucha diversión. 🎂✨
                 </p>
 
-                <p class="text-lg text-gray-300 mb-2">
+                <p class="text-lg text-gray-300 mb-3">
                     Prepárate para aprender <span class="font-semibold text-yellow-300">trucos nuevos en bicicleta 🚲</span>
                     y vivir una emocionante <span class="font-semibold text-yellow-300">búsqueda del tesoro</span> 🗺️.
                 </p>
 
-                <p class="text-lg text-gray-300 mb-2">
-                    ¡Si te animas,<span class="text-yellow-400 font-bold"> IMPORTANTE:</span> no olvides traer tu
+                <p class="text-lg text-gray-300 mb-3">
+                    ¡Si te animas, <span class="text-yellow-400 font-bold">IMPORTANTE:</span> no olvides traer tu
                 </p>
-                <p class="text-lg text-gray-300 mb-2">
-                    <span class="text-yellow-400 font-bold">BICI y CASCO!</span> *El casco es oligatorio* 🎉
+                <p class="text-lg text-yellow-400 font-bold mb-3">
+                    BICI y CASCO! <span class="text-gray-300">*El casco es obligatorio*</span> 🎉
                 </p>
 
                 <p class="text-xl font-bold text-white">
                     📅 Jueves, 23 de Octubre
                 </p>
-                <p class="text-xl font-bold text-white">
+                <p class="text-xl font-bold text-white mb-8">
                     🕑 2:00 PM
                 </p>
 
-                <div class="mt-8">
-                    <a href="#mapa" class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 inline-block">
-                        📍 Ver Ubicación
-                    </a>
-                </div>
+                <a href="#mapa"
+                   class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 inline-block">
+                    📍 Ver Ubicación
+                </a>
+            </div>
+
+            <!-- Divider Horizontal (mobile only) -->
+            <div class="block md:hidden h-[5px] bg-yellow-400"></div>
+
+            <!-- Divider Vertical (desktop only) -->
+            <div class="hidden md:block w-[2px] bg-yellow-400"></div>
+
+            <!-- Right side: Parallax image -->
+            <div class="relative flex-1 min-h-[300px] md:min-h-auto overflow-hidden">
+                <div class="absolute inset-0 bg-center bg-cover bg-fixed"
+                     style="background-image: url('img/parqueSerra.png');"></div>
             </div>
         </section>
+
 
         <!-- Add to Calendar Section -->
         <section id="calendario" class="card max-w-3xl mx-auto">

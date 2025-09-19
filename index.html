@@ -170,10 +170,7 @@
                 </p>
 
                 <p class="text-lg text-gray-300 mb-3">
-                    ¡Si te animas, <span class="text-yellow-400 font-bold">IMPORTANTE:</span> no olvides traer tu
-                </p>
-                <p class="text-lg text-yellow-400 font-bold mb-3">
-                    BICI y CASCO! <span class="text-gray-300">*El casco es obligatorio*</span> 🎉
+                    ¡Si quieres, puedes traer tu <span class="text-yellow-400 font-bold">BICI y CASCO</span>! Habrá mini clases de bici y tmb <span class="text-yellow-400 font-bold">juegos para divertirnos</span> 🎉 <span class="text-gray-300">*El casco es obligatorio*</span> 🎉
                 </p>
 
                 <p class="text-xl font-bold text-white">
@@ -184,7 +181,7 @@
                 </p>
 
                 <a href="#mapa"
-                   class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 inline-block">
+                   class="bg-yellow-500 hover:bg-yellow-600 text-gray-900 font-bold py-3 px-6 rounded-full transition-transform transform hover:scale-105 inline-block text-center">
                     📍 Ver Ubicación
                 </a>
             </div>
@@ -193,13 +190,15 @@
             <div class="block md:hidden h-[5px] bg-yellow-400"></div>
 
             <!-- Divider Vertical (desktop only) -->
-            <div class="hidden md:block w-[2px] bg-yellow-400"></div>
+            <div class="hidden md:block w-[5px] bg-yellow-400"></div>
 
             <!-- Right side: Parallax image -->
             <div class="relative flex-1 min-h-[300px] md:min-h-auto overflow-hidden">
                 <div class="absolute inset-0 bg-center bg-cover bg-fixed filter grayscale"
-                     style="background-image: url('img/ilanCactus.jpg');">
+                     style="background-image: url('img/ilanCactus.jpg');
+              transform: scaleX(-1);">
                 </div>
+            </div>
         </section>
 
 
@@ -346,13 +345,25 @@
         <!-- Map Card -->
         <section id="mapa" class="card max-w-3xl mx-auto">
             <div class="p-8 md:p-12 rounded-2xl bg-gradient-to-br from-pink-500/20 via-yellow-500/10 to-red-500/20 shadow-lg">
-                <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-green-500">Ubicación</h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-8 text-green-500">Ubicación - Paruqe Serra</h2>
+
                 <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border-2 border-gray-700">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m14!m8!1m3!1d933.2222839715522!2d-100.41542692642403!3d20.674088904326126!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d35b94687b46bb%3A0x4f8e60f0191142ec!2sParque%20Serra!5e0!3m2!1sen!2smx!4v1757705993348!5m2!1sen!2smx" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
+
                 <p class="text-center mt-4 text-gray-400">Parque Serra, Anillo Vial II Fray Junípero Serra 19900 Km 16.9, Querétaro</p>
+
+                <!-- Botón para abrir Google Maps con tu link -->
+                <div class="text-center mt-6">
+                    <a href="https://www.google.com/maps/place/parque+serra/data=!4m2!3m1!1s0x85d35b94687b46bb:0x4f8e60f0191142ec?sa=X&ved=1t:242&ictx=111"
+                       target="_blank"
+                       class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-full transition-transform transform hover:scale-105 inline-block">
+                        Abrir en Google Maps
+                    </a>
+                </div>
             </div>
         </section>
+
 
 
     </main>

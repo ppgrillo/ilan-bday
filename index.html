@@ -362,7 +362,52 @@
                 </div>
             </div>
         </section>
+        <!-- Weather Card -->
+        <section id="clima" class="card max-w-3xl mx-auto mt-10">
+            <div class="p-8 md:p-12 rounded-2xl bg-gradient-to-br from-blue-500/20 via-cyan-500/10 to-indigo-500/20 shadow-lg">
+                <h4 class="text-3xl md:text-4xl font-bold text-center mb-8 text-blue-400">Clima estimado para el dia de la fiesta</h4>
 
+                <div id="weather-container" class="text-center text-gray-200">
+                    <p class="text-lg">Cargando pronóstico...</p>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            async function getWeather() {
+                const aK = "ZD6FRMDEP6BQQF3MYLUMBVKEV"; /
+                const lat = 20.6741;
+                const lon = -100.4154;
+                const date = "2025-10-23"; // 📅 Fecha del cumple
+
+                const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${lat},${lon}/${date}?unitGroup=metric&key=${aK}&include=days&lang=es`;
+
+                try {
+                    const response = await fetch(url);
+                    const data = await response.json();
+
+                    const day = data.days[0];
+                    const tempMax = day.tempmax;
+                    const tempMin = day.tempmin;
+                    const desc = day.description || "Clima estimado";
+                    const icon = day.icon;
+
+                    document.getElementById("weather-container").innerHTML = `
+        <div class="flex flex-col items-center space-y-3">
+          <img src="https://raw.githubusercontent.com/visualcrossing/WeatherIcons/main/PNG/2nd%20Set%20-%20Color/${icon}.png" alt="Clima" class="w-20 h-20">
+          <p class="text-xl font-bold text-yellow-300">${desc}</p>
+          <p class="text-lg">🌡️ Máx: <span class="font-semibold">${tempMax}°C</span> / Mín: <span class="font-semibold">${tempMin}°C</span></p>
+        </div>
+      `;
+                } catch (err) {
+                    document.getElementById("weather-container").innerHTML = `
+        <p class="text-red-400">No se pudo cargar el clima. Mostrando promedio histórico: 🌤️ Máx 24°C / Mín 12°C</p>
+      `;
+                }
+            }
+
+            getWeather();
+        </script>
 
 
     </main>
